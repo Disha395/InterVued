@@ -1,0 +1,77 @@
+# ====================================================================
+# InterVued Root .gitignore
+# Cohesive rules for Monorepo (Next.js frontend + NestJS backend)
+# ====================================================================
+
+# 1. Dependency Directories
+# --------------------------------------------------------------------
+node_modules/
+dist/
+build/
+.pnpm-store/
+.yarn/
+
+# 2. Local Environment & Secret Files (CRITICAL: Never commit these!)
+# --------------------------------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+backend/.env
+frontend/.env
+.env.*.local
+
+# 3. Next.js Specific File Exclusions
+# --------------------------------------------------------------------
+frontend/.next/
+frontend/out/
+.next/
+out/
+
+# 4. NestJS Specific File Exclusions
+# --------------------------------------------------------------------
+backend/dist/
+backend/thrift/
+components/
+
+# 5. Database, Container, and Local Cache Storage
+# --------------------------------------------------------------------
+# Excludes local PostgreSQL data stored via docker volumes
+.docker-data/
+postgres-data/
+pgdata/
+.turbo/
+.cache/
+.vercel/
+
+# 6. Testing, Coverage, and Log Files
+# --------------------------------------------------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.log
+*.log
+coverage/
+backend/coverage/
+frontend/coverage/
+.nyc_output
+.playwright/
+test-results/
+playwright-report/
+blob-report/
+
+# 7. Operating System / IDE Configurations
+# --------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
