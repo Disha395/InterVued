@@ -4,6 +4,8 @@ import { AuthService } from './auth.service';
 import {UsersModule} from "../users/users.module";
 import {JwtModule} from "@nestjs/jwt";
 import {ConfigModule, ConfigService} from "@nestjs/config";
+import {JwtRefreshStrategy} from "./strategies/jwt.refresh.strategy";
+import {JwtStrategy} from "./strategies/jwt.strategy";
 
 // Authentifizierungsmodul - verwaltet Login, Registrierung und Token
 @Module({
@@ -19,7 +21,7 @@ import {ConfigModule, ConfigService} from "@nestjs/config";
       })
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, JwtStrategy, JwtRefreshStrategy],
   exports: [AuthService],
 })
 export class AuthModule {}
