@@ -27,7 +27,7 @@ export class AuthService {
             throw new ConflictException('E-Mail-Adresse wird bereits verwendet');
         }
 
-        // Passwort hashen - niemals Klartext speichern
+        // Passwort hashen
         const hashedPassword = await bcrypt.hash(registerDto.password, 10);
 
         // Benutzer erstellen
